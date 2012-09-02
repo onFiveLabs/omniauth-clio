@@ -1,5 +1,5 @@
 module OmniAuth
-  module clio
+  module Clio
     VERSION = "0.0.1"
   end
 end

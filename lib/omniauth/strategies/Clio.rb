@@ -3,7 +3,7 @@ require 'multi_json'
 
 module OmniAuth
   module Strategies
-    class clio < OmniAuth::Strategies::OAuth
+    class Clio < OmniAuth::Strategies::OAuth
       option :name, 'clio'
       option :client_options, {:authorize_path => '/oauth/authenticate',
                                :site => 'http://api-docs.goclio.com/',
