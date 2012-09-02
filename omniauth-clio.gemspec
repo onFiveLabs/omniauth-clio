@@ -1,17 +1,17 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "omniauth-twitter/version"
+require "omniauth-clio/version"
 
 Gem::Specification.new do |s|
-  s.name        = "omniauth-twitter"
-  s.version     = OmniAuth::Twitter::VERSION
-  s.authors     = ["Arun Agrawal"]
-  s.email       = ["arunagw@gmail.com"]
-  s.homepage    = "https://github.com/arunagw/omniauth-twitter"
-  s.summary     = %q{OmniAuth strategy for Twitter}
-  s.description = %q{OmniAuth strategy for Twitter}
+  s.name        = "omniauth-clio"
+  s.version     = OmniAuth::Clio::VERSION
+  s.authors     = ["Nick Shook"]
+  s.email       = ["nicholas.shook@gmail.com"]
+  s.homepage    = "https://github.com/shicholas/omniauth-clio"
+  s.summary     = %q{OmniAuth strategy for Clio}
+  s.description = %q{OmniAuth strategy for Clio}
 
-  s.rubyforge_project = "omniauth-twitter"
+  s.rubyforge_project = "omniauth-clio"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

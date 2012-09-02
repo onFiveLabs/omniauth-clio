@@ -3,10 +3,10 @@ require 'multi_json'
 
 module OmniAuth
   module Strategies
-    class Twitter < OmniAuth::Strategies::OAuth
-      option :name, 'twitter'
+    class clio < OmniAuth::Strategies::OAuth
+      option :name, 'clio'
       option :client_options, {:authorize_path => '/oauth/authenticate',
-                               :site => 'https://api.twitter.com',
+                               :site => 'http://api-docs.goclio.com/',
 										 :proxy => ENV['http_proxy'] ? URI(ENV['http_proxy']) : nil}
 
       uid { access_token.params[:user_id] }
@@ -20,7 +20,7 @@ module OmniAuth
           :description => raw_info['description'],
           :urls => {
             'Website' => raw_info['url'],
-            'Twitter' => 'http://twitter.com/' + raw_info['screen_name'],
+            'clio' => 'http://goclio.com/' + raw_info['screen_name'],
           }
         }
       end

@@ -1,17 +1,17 @@
 require 'spec_helper'
 
-describe OmniAuth::Strategies::Twitter do
+describe OmniAuth::Strategies::clio do
   subject do
-    OmniAuth::Strategies::Twitter.new({})
+    OmniAuth::Strategies::clio.new({})
   end
 
   context "client options" do
     it 'should have correct name' do
-      subject.options.name.should eq("twitter")
+      subject.options.name.should eq("clio")
     end
 
     it 'should have correct site' do
-      subject.options.client_options.site.should eq('https://api.twitter.com')
+      subject.options.client_options.site.should eq('http://api-docs.goclio.com')
     end
 
     it 'should have correct authorize url' do

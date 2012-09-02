@@ -1,45 +1,27 @@
-# OmniAuth Twitter
+# OmniAuth clio
 
-This gem contains the Twitter strategy for OmniAuth.
+This gem contains the clio strategy for OmniAuth. I used the omniauth-twitter gem as a template to getting this up and running. Yay open source!!
 
-Twitter uses the OAuth 1.0a flow, you can read about it here: https://dev.twitter.com/docs/auth/oauth
+clio uses the OAuth 2.0 flow, you can read about it here: http://api-docs.goclio.com/v1/index.html#authorization-with-oauth-2-0
 
 ## How To Use It
 
-Usage is as per any other OmniAuth 1.0 strategy. So let's say you're using Rails, you need to add the strategy to your `Gemfile`:
+Usage is as per any other OmniAuth 2.0 strategy. So let's say you're using Rails, you need to add the strategy to your `Gemfile`:
 
-    gem 'omniauth-twitter'
+    gem 'omniauth-clio'
 
 You can pull them in directly from github e.g.:
 
-    gem 'omniauth-twitter', :git => 'https://github.com/arunagw/omniauth-twitter.git'
+    gem 'omniauth-clio', :git => 'https://github.com/shicholas/omniauth-clio.git'
 
 Once these are in, you need to add the following to your `config/initializers/omniauth.rb`:
 
     Rails.application.config.middleware.use OmniAuth::Builder do
-      provider :twitter, "consumer_key", "consumer_secret" 
+      provider :clio, "consumer_key", "consumer_secret" 
     end
 
-You will obviously have to put in your key and secret, which you get when you register your app with Twitter (they call them API Key and Secret Key). 
+You will obviously have to put in your key and secret, which you get when you register your app with clio (they call them API Key and Secret Key). 
 
-Twitter also optionally supports specifying a username when authenticating. This is handy when your application supports multiple twitter accounts since you can prompt the user to login to the correct account (and not defaulting to the current login). 
-
-To use this, just add a querystring for screen_name. 
-
-	/auth/twitter?screen_name=scottw
-
-You can also specify ```force_login``` without specifying the screen_name to prompt the user to choose the twitter account they wish to use.
-
-    /auth/twitter?force_login=true
-
-Twitter also optionally supports specifying a x_auth_access_type when authenticating. This is handy when you need to specify special permission in some cases.
-
-To use this, just add a querystring for x_auth_access_type. 
-
-	/auth/twitter?x_auth_access_type=read	
-
-
-Now just follow the README at: https://github.com/intridea/omniauth
 
 ## Watch the RailsCast
 
@@ -50,10 +32,10 @@ Ryan Bates has put together an excellent RailsCast on OmniAuth:
 
 ## Supported Rubies
 
-OmniAuth Twitter is tested under 1.8.7, 1.9.2, 1.9.3 and Ruby Enterprise Edition.
+OmniAuth clio is tested under 1.8.7, 1.9.2, 1.9.3 and Ruby Enterprise Edition.
 
 [![CI Build
-Status](https://secure.travis-ci.org/arunagw/omniauth-twitter.png)](http://travis-ci.org/arunagw/omniauth-twitter)
+Status](https://secure.travis-ci.org/arunagw/omniauth-clio.png)](http://travis-ci.org/arunagw/omniauth-clio)
 
 ## Note on Patches/Pull Requests
 
@@ -65,7 +47,7 @@ Status](https://secure.travis-ci.org/arunagw/omniauth-twitter.png)](http://travi
 
 ## License
 
-Copyright (c) 2011 by Arun Agrawal
+Copyright (c) 2011 by Nicholas Shook
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
