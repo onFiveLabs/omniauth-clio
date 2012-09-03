@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe OmniAuth::Strategies::clio do
+describe OmniAuth::Strategies::Clio do
   subject do
-    OmniAuth::Strategies::clio.new({})
+    OmniAuth::Strategies::Clio.new({})
   end
 
   context "client options" do
@@ -11,7 +11,7 @@ describe OmniAuth::Strategies::clio do
     end
 
     it 'should have correct site' do
-      subject.options.client_options.site.should eq('http://api-docs.goclio.com')
+      subject.options.client_options.site.should eq('https://app.goclio.com/')
     end
 
     it 'should have correct authorize url' do

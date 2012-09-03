@@ -5,23 +5,15 @@ module OmniAuth
   module Strategies
     class Clio < OmniAuth::Strategies::OAuth
       option :name, 'clio'
-      option :client_options, {:authorize_path => '/oauth/authenticate',
-                               :site => 'http://api-docs.goclio.com/',
-										 :proxy => ENV['http_proxy'] ? URI(ENV['http_proxy']) : nil}
+      option :client_options, {:site => 'https://app.goclio.com/'}
 
-      uid { access_token.params[:user_id] }
+      uid { raw_info['email'] }
 
       info do
         {
-          :nickname => raw_info['screen_name'],
-          :name => raw_info['name'],
-          :location => raw_info['location'],
-          :image => raw_info['profile_image_url'],
-          :description => raw_info['description'],
-          :urls => {
-            'Website' => raw_info['url'],
-            'clio' => 'http://goclio.com/' + raw_info['screen_name'],
-          }
+          :email => raw_info['email'],
+          :last_name => raw_info['last_name'],
+          :first_name => raw_info['first_name']
         }
       end
 
