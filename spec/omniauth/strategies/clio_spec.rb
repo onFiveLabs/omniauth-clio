@@ -7,15 +7,12 @@ describe OmniAuth::Strategies::Clio do
 
   context "client options" do
     it 'should have correct name' do
-      subject.options.name.should eq("clio")
+      subject.options.name.should eq("Clio")
     end
 
     it 'should have correct site' do
-      subject.options.client_options.site.should eq('https://app.goclio.com/')
+      subject.options.client_options.site.should eq('https://app.goclio.com')
     end
 
-    it 'should have correct authorize url' do
-      subject.options.client_options.authorize_path.should eq('/oauth/authenticate')
-    end
   end
 end

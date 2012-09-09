@@ -1,17 +1,18 @@
 require 'omniauth-oauth2'
-# require 'multi_json'
+require 'multi_json'
 
 module OmniAuth
   module Strategies
     class Clio < OmniAuth::Strategies::OAuth2
-      option :name, "Clio"
+      option :name, "clio"
 
       option :client_options, {
         :site => 'https://app.goclio.com',
         :authorize_url => '/oauth/authorize',
-        :token_url => '/oauth/access_token'
+        :token_url => '/oauth/token'
       }
       
+
       def authorize_params
         super.tap do |params|
           params[:response_type] = "code"
@@ -34,6 +35,8 @@ module OmniAuth
         }
         client.get_token(token_params)
       end
+
     end
   end
 end
+
