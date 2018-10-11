@@ -6,19 +6,18 @@ module OmniAuth
       option :name, "clio"
 
       option :client_options, {
-        :site => 'https://app.goclio.com',
-        :authorize_url => '/oauth/authorize',
-        :token_url => '/oauth/token'
+          :site => 'https://app.clio.com',
+          :authorize_url => '/oauth/authorize',
+          :token_url => '/oauth/token'
       }
-      
-      uid { raw_info['user']['id']}
+
+      uid { raw_info['data']['id']}
 
       info do
         {
-          :last_name => raw_info['user']['last_name'],
-          :first_name => raw_info['user']['first_name'],
-          :email => raw_info['user']['email'],
-          :firm => raw_info['account']['name'],
+            :last_name => raw_info['data']['last_name'],
+            :first_name => raw_info['data']['first_name'],
+            :email => raw_info['data']['email']
         }
       end
 
@@ -27,9 +26,8 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('/api/v1/users/who_am_i').parsed
+        @raw_info ||= access_token.get('/api/v4/users/who_am_i', params: { fields: 'id,last_name,first_name,email' }).parsed
       end
     end
   end
 end
-
